@@ -23,7 +23,7 @@ export const NameCard: React.FC = () => {
             </div>
             <div className="flex gap-x-4 items-center w-full">
                 <a href="https://github.com/drowningtoast" target="_blank" rel="noopener noreferrer"><SiGithub className="size-6 lg:size-8" color="currentColor" /></a>
-                <a href="www.linkedin.com/in/supratouch" target="_blank" rel="noopener noreferrer"><LucideLinkedin className="size-6 lg:size-8 text-transparent fill-foreground" /></a>
+                <a href="https://linkedin.com/in/supratouch" target="_blank" rel="noopener noreferrer"><LucideLinkedin className="size-6 lg:size-8 text-transparent fill-foreground" /></a>
             </div>
         </div>
     )
