@@ -4,9 +4,12 @@ import { createElement as h } from "react";
 
 export const prerender = false;
 
-export const GET: APIRoute = async ({ request }) => {
-	const origin = new URL(request.url).origin;
-	const fontData = await fetch(`${origin}/fonts/GeistPixel-Line.otf`).then(
+const host = import.meta.env.DEV
+	? "http://localhost:4321"
+	: "https://supratouch.dev";
+
+export const GET: APIRoute = async () => {
+	const fontData = await fetch(`${host}/fonts/GeistPixel-Line.otf`).then(
 		(r) => r.arrayBuffer(),
 	);
 
