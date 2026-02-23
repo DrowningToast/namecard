@@ -22,12 +22,12 @@ export const Description: React.FC<{ value: string | undefined }> = ({ value }) 
     return (
         <div
             onClick={() => isOverflowing && setIsClamped(!isClamped)}
-            className="text-sm text-foreground/50">
+            className="text-sm lg:text-base text-foreground/50">
             <p ref={textRef} className={cn({ "line-clamp-2": isClamped })}>
                 {value}
             </p>
             {isOverflowing && (
-                <span className="text-primary/80 hover:text-primary transition-colors cursor-pointer">
+                <span className="text-primary/80 hover:text-primary transition-colors cursor-pointer text-sm lg:text-base">
                     {label}
                 </span>
             )}

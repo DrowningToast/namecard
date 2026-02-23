@@ -10,6 +10,8 @@ import { Projects } from "@/constants/projects";
 import { SideProjects } from "@/constants/side-projects";
 import { Activities } from "@/constants/activities";
 import SEO from "@/components/SEO.astro";
+import { SkillsCarousel } from "@/components/landing/SkillsCarousel";
+import { EncryptedText } from "@/components/ui/encrypted-text";
 ---
 
 <html lang="en">
@@ -26,7 +28,7 @@ import SEO from "@/components/SEO.astro";
 		</script>
 	</head>
 	<body
-		class="bg-background px-4 relative transition-colors:* duration-300:* py-16"
+		class="bg-background px-4 relative transition-colors:* duration-300:* py-16 flex flex-col items-stretch gap-y-20 mx-auto max-w-2xl"
 	>
 		<div class="fixed top-0 inset-x-0 z-20">
 			<Navbar client:load />
@@ -42,11 +44,26 @@ import SEO from "@/components/SEO.astro";
 				client:load
 			/>
 			<Section header="Education" sectionViewmodels={Education} client:load />
+			<div class="flex flex-col items-stretch gap-y-4">
+				<h3 class="text-2xl lg:text-4xl font-bold">
+					<EncryptedText
+						client:idle
+						text="I'm capable of.."
+						revealedClassName="text-primary"
+						encryptedClassName="text-primary/20"
+						revealDelayMs={100}
+						flipDelayMs={10}
+					/>
+				</h3>
+				<div class="text-foreground w-full mb-4">
+					<SkillsCarousel client:visible />
+				</div>
+			</div>
 			<Section header="Projects" sectionViewmodels={Projects} client:load />
 			<Section
 				header="Side Projects"
 				sectionViewmodels={SideProjects}
-				client:load
+				client:idle
 			/>
 			<Section header="Activities" sectionViewmodels={Activities} client:load />
 		</div>

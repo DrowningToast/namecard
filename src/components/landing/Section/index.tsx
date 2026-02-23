@@ -28,7 +28,7 @@ export const Section: React.FC<SectionProps> = ({ header, sectionViewmodels }) =
     return (
         <div className="flex flex-col gap-y-4">
             <div className="flex justify-between items-center">
-                <h3 className="text-2xl font-bold">
+                <h3 className="text-2xl lg:text-3xl font-bold">
                     <EncryptedText
                         text={header}
                         encryptedClassName="text-primary/20"
@@ -44,7 +44,7 @@ export const Section: React.FC<SectionProps> = ({ header, sectionViewmodels }) =
                         <div className="flex flex-col gap-y-1.5" key={viewmodel.title}>
                             <div className="space-y-1">
                                 <div className="flex justify-between items-start">
-                                    <h4 className="text-base font-semibold relative border-foreground border-b-2 --offset-4">
+                                    <h4 className="text-base lg:text-lg font-semibold relative border-foreground border-b-2 --offset-4">
                                         {viewmodel.url ? (
                                             <a href={viewmodel.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 hover:underline">
                                                 {viewmodel.title}
@@ -52,14 +52,14 @@ export const Section: React.FC<SectionProps> = ({ header, sectionViewmodels }) =
                                             </a>
                                         ) : viewmodel.title}
                                     </h4>
-                                    {viewmodel.startDate ? <span className="text-sm text-foreground">{viewmodel.startDate.toLocaleDateString()}</span> : null}
+                                    {viewmodel.startDate ? <span className="text-sm lg:text-base text-foreground">{viewmodel.startDate.toLocaleDateString()}</span> : null}
                                 </div>
                                 <Description value={viewmodel.description} />
                             </div>
                             {viewmodel.subnodes?.map((subnode) => (
                                 <div className="space-y-1" key={subnode.title}>
                                     <div className="flex justify-between items-start">
-                                        <h5 className="text-sm font-semibold">
+                                        <h5 className="text-sm lg:text-base font-semibold">
                                             {subnode.url ? (
                                                 <a href={subnode.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 hover:underline">
                                                     {subnode.title}
@@ -67,24 +67,24 @@ export const Section: React.FC<SectionProps> = ({ header, sectionViewmodels }) =
                                                 </a>
                                             ) : subnode.title}
                                         </h5>
-                                        <p className="text-xs text-foreground/80">
+                                        <p className="text-xs lg:text-sm text-foreground/80">
                                             {
                                                 subnode.startDate ? (
-                                                    <span className="text-sm text-foreground text-nowrap">
+                                                    <span className="text-sm lg:text-base text-foreground text-nowrap">
                                                         {format(subnode.startDate, "MMM yyyy")}
                                                     </span>
                                                 ) : null
                                             }
                                             {
                                                 subnode.endDate ? (
-                                                    <span className="text-sm text-foreground text-nowrap">
+                                                    <span className="text-sm lg:text-base text-foreground text-nowrap">
                                                         {" "}- {format(subnode.endDate, "MMM yyyy")}
                                                     </span>
                                                 ) : (
                                                     <>
                                                         {
                                                             subnode.startDate && !subnode.endDate ? (
-                                                                <span className="text-sm text-foreground text-nowrap">
+                                                                <span className="text-sm lg:text-base text-foreground text-nowrap">
                                                                     {" "}- Present
                                                                 </span>
                                                             ) : null
@@ -96,7 +96,6 @@ export const Section: React.FC<SectionProps> = ({ header, sectionViewmodels }) =
                                     </div>
                                     <Description value={subnode.description} />
                                 </div>
-
                             ))}
                         </div>
                     ))

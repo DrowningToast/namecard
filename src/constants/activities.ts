@@ -16,46 +16,46 @@ export const Activities: SectionViewModel[] = [
 	{
 		title: "Junior Webmaster Camp 13",
 		url: "https://13.jwc.in.th/",
+		startDate: new Date("2024-07-01"),
 		subnodes: [
 			{
 				title: "Programming Class Teaching Director & Frontend Developer",
 				description:
 					"Instructed 48 selected high school students in fullstack development and led the frontend team to build the interactive camp website.",
-				startDate: new Date("2024-07-01"),
 			},
 		],
 	},
 	{
 		title: "Young Webmaster Camp 19",
+		startDate: new Date("2023-07-01"),
 		subnodes: [
 			{
 				title: "Participant",
 				description: "Selected as 1 of 20 participants from 371 applicants.",
-				startDate: new Date("2023-07-01"),
 			},
 		],
 	},
 	{
 		title: "ToBeIT'67 Camp",
+		startDate: new Date("2023-10-01"),
+		endDate: new Date("2023-11-01"),
 		subnodes: [
 			{
 				title: "Web Development Instructor",
 				description:
 					"Taught web development (SvelteKit, Express.js, JavaScript) to 1,000+ students.",
-				startDate: new Date("2023-10-01"),
-				endDate: new Date("2023-11-01"),
 			},
 		],
 	},
 	{
 		title: "Sairahut IT20",
+		startDate: new Date("2023-07-01"),
+		endDate: new Date("2023-08-01"),
 		subnodes: [
 			{
 				title: "Development Team Lead",
 				description:
 					"Led development team for faculty event with 250 peak concurrent users.",
-				startDate: new Date("2023-07-01"),
-				endDate: new Date("2023-08-01"),
 			},
 		],
 	},
