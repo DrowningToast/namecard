@@ -1,16 +1,15 @@
 import type { APIRoute } from "astro";
 import { ImageResponse } from "@vercel/og";
 import { createElement as h } from "react";
-import { readFileSync } from "node:fs";
 
 export const prerender = false;
 
-// @vercel/nft traces this pattern and bundles the file into the function
-const fontData = readFileSync(
-	new URL("../../../public/fonts/GeistPixel-Line.otf", import.meta.url),
-).buffer as ArrayBuffer;
+export const GET: APIRoute = async ({ request }) => {
+	const origin = new URL(request.url).origin;
+	const fontData = await fetch(`${origin}/fonts/GeistPixel-Line.otf`).then(
+		(r) => r.arrayBuffer(),
+	);
 
-export const GET: APIRoute = async () => {
 	return new ImageResponse(
 		h(
 			"div",
