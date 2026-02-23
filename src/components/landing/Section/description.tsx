@@ -22,7 +22,7 @@ export const Description: React.FC<{ value: string | undefined }> = ({ value }) 
     return (
         <div
             onClick={() => isOverflowing && setIsClamped(!isClamped)}
-            className="text-sm lg:text-base text-foreground/50">
+            className="text-sm lg:text-base text-foreground/70">
             <p ref={textRef} className={cn({ "line-clamp-2": isClamped })}>
                 {value}
             </p>
