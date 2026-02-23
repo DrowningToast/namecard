@@ -8,6 +8,7 @@ import { WorkExperience } from "@/constants/work-experience";
 import { Education } from "@/constants/education";
 import { Projects } from "@/constants/projects";
 import { SideProjects } from "@/constants/side-projects";
+import { Activities } from "@/constants/activities";
 import SEO from "@/components/SEO.astro";
 ---
 
@@ -47,6 +48,7 @@ import SEO from "@/components/SEO.astro";
 				sectionViewmodels={SideProjects}
 				client:load
 			/>
+			<Section header="Activities" sectionViewmodels={Activities} client:load />
 		</div>
 	</body>
 </html>
