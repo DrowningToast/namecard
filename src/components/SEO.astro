@@ -10,17 +10,16 @@ interface Props {
 const {
 	title = `${Profile.name} — Software Engineer`,
 	description = `Personal portfolio of ${Profile.name}, a Software Engineering student at KMITL and Fullstack Software Engineer at Agoda. Experienced in React, TypeScript, Next.js, and microservices.`,
-	image,
+	image = new URL("/api/og", Astro.url).href,
 } = Astro.props;
 
-const url = Astro.url.href;
+const url = Profile.website;
 
 const jsonLd = {
 	"@context": "https://schema.org",
 	"@type": "Person",
 	name: Profile.name,
 	url: Profile.website,
-	email: Profile.email,
 	jobTitle: "Software Engineering Student & Fullstack Software Engineer",
 	worksFor: {
 		"@type": "Organization",
@@ -51,14 +50,14 @@ const jsonLd = {
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:locale" content="en_US" />
-{image && <meta property="og:image" content={image} />}
+<meta property="og:image" content={image} />
 
 <!-- Twitter Card -->
-<meta name="twitter:card" content={image ? "summary_large_image" : "summary"} />
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:url" content={url} />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
-{image && <meta name="twitter:image" content={image} />}
+<meta name="twitter:image" content={image} />
 
 <!-- JSON-LD -->
-<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+<script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
