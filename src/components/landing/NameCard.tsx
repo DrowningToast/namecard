@@ -1,7 +1,11 @@
+import { Button } from "@/components/ui/button"
+import { SiGithub, } from "@icons-pack/react-simple-icons"
+import { Linkedin, LinkedinIcon, LucideLinkedin } from "lucide-react"
+
 export const NameCard: React.FC = () => {
     return (
-        <div className="rounded-2xl p-4 flex flex-col items-center justify-center text-foreground">
-            <div className="flex flex-col -gap-y-1 mb-8 w-full justify-center">
+        <div className="rounded-2xl flex flex-col items-center justify-center text-foreground gap-y-6">
+            <div className="flex flex-col -gap-y-1 w-full justify-center">
                 <h1 className="text-5xl font-bold text-primary">
                     Gus
                 </h1>
@@ -16,6 +20,10 @@ export const NameCard: React.FC = () => {
                 <div className="flex gap-x-2">
                     <span className="text-foreground font-medium">Parttime</span><span className="text-foreground/50">Random stuff coder</span>
                 </div>
+            </div>
+            <div className="flex gap-x-4 items-center w-full">
+                <a href="https://github.com/drowningtoast" target="_blank" rel="noopener noreferrer"><SiGithub className="w-6 h-6" /></a>
+                <a href="www.linkedin.com/in/supratouch" target="_blank" rel="noopener noreferrer"><LucideLinkedin className="w-6 h-6 text-transparent fill-foreground" /></a>
             </div>
         </div>
     )
