@@ -1,10 +1,6 @@
 import type { SectionViewModel } from "@/components/landing/Section";
 
-export interface ActivityViewModel extends SectionViewModel {
-	url?: string;
-}
-
-export const Activities: ActivityViewModel[] = [
+export const Activities: SectionViewModel[] = [
 	{
 		title: "IT Experience Club",
 		subnodes: [

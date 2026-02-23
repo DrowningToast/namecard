@@ -1,0 +1,64 @@
+---
+import { Profile } from "@/constants/profile";
+
+interface Props {
+	title?: string;
+	description?: string;
+	image?: string;
+}
+
+const {
+	title = `${Profile.name} — Software Engineer`,
+	description = `Personal portfolio of ${Profile.name}, a Software Engineering student at KMITL and Fullstack Software Engineer at Agoda. Experienced in React, TypeScript, Next.js, and microservices.`,
+	image,
+} = Astro.props;
+
+const url = Astro.url.href;
+
+const jsonLd = {
+	"@context": "https://schema.org",
+	"@type": "Person",
+	name: Profile.name,
+	url: Profile.website,
+	email: Profile.email,
+	jobTitle: "Software Engineering Student & Fullstack Software Engineer",
+	worksFor: {
+		"@type": "Organization",
+		name: "Agoda",
+	},
+	alumniOf: {
+		"@type": "CollegeOrUniversity",
+		name: "King Mongkut's Institute of Technology Ladkrabang",
+	},
+	address: {
+		"@type": "PostalAddress",
+		addressLocality: "Bangkok",
+		addressCountry: "TH",
+	},
+	sameAs: [Profile.linkedin],
+};
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta name="author" content={Profile.name} />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href={url} />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={url} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:locale" content="en_US" />
+{image && <meta property="og:image" content={image} />}
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content={image ? "summary_large_image" : "summary"} />
+<meta name="twitter:url" content={url} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+{image && <meta name="twitter:image" content={image} />}
+
+<!-- JSON-LD -->
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />

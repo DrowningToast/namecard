@@ -5,6 +5,10 @@ import { Background } from "@/components/landing/Background";
 import { Navbar } from "@/components/common/Navbar";
 import { Section } from "@/components/landing/Section/index";
 import { WorkExperience } from "@/constants/work-experience";
+import { Education } from "@/constants/education";
+import { Projects } from "@/constants/projects";
+import { SideProjects } from "@/constants/side-projects";
+import SEO from "@/components/SEO.astro";
 ---
 
 <html lang="en">
@@ -14,10 +18,14 @@ import { WorkExperience } from "@/constants/work-experience";
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<SEO />
+		<script is:inline>
+			const theme = localStorage.getItem("theme") ?? "dark";
+			document.documentElement.classList.toggle("dark", theme === "dark");
+		</script>
 	</head>
 	<body
-		class="bg-background px-4 py-6 relative dark transition-colors:* duration-300:* h-[300vh] pt-16"
+		class="bg-background px-4 relative transition-colors:* duration-300:* py-16"
 	>
 		<div class="fixed top-0 inset-x-0 z-20">
 			<Navbar client:load />
@@ -30,6 +38,13 @@ import { WorkExperience } from "@/constants/work-experience";
 			<Section
 				header="Experience"
 				sectionViewmodels={WorkExperience}
+				client:load
+			/>
+			<Section header="Education" sectionViewmodels={Education} client:load />
+			<Section header="Projects" sectionViewmodels={Projects} client:load />
+			<Section
+				header="Side Projects"
+				sectionViewmodels={SideProjects}
 				client:load
 			/>
 		</div>

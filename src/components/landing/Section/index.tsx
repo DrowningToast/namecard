@@ -1,16 +1,19 @@
 import { Description } from "@/components/landing/Section/description";
 import { EncryptedText } from "@/components/ui/encrypted-text";
 import { format, formatRelative, subDays } from "date-fns";
+import { ExternalLink } from "lucide-react";
 import type React from "react";
 
 export interface SectionViewModel {
     title: string,
     description?: string,
+    url?: string,
     startDate?: Date,
     endDate?: Date,
     subnodes?: {
         title: string,
         description?: string,
+        url?: string,
         startDate?: Date,
         endDate?: Date,
     }[]
@@ -42,7 +45,12 @@ export const Section: React.FC<SectionProps> = ({ header, sectionViewmodels }) =
                             <div className="space-y-1">
                                 <div className="flex justify-between items-start">
                                     <h4 className="text-base font-semibold relative border-foreground border-b-2 --offset-4">
-                                        {viewmodel.title}
+                                        {viewmodel.url ? (
+                                            <a href={viewmodel.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 hover:underline">
+                                                {viewmodel.title}
+                                                <ExternalLink className="size-3.5" />
+                                            </a>
+                                        ) : viewmodel.title}
                                     </h4>
                                     {viewmodel.startDate ? <span className="text-sm text-foreground">{viewmodel.startDate.toLocaleDateString()}</span> : null}
                                 </div>
@@ -51,7 +59,14 @@ export const Section: React.FC<SectionProps> = ({ header, sectionViewmodels }) =
                             {viewmodel.subnodes?.map((subnode) => (
                                 <div className="space-y-1" key={subnode.title}>
                                     <div className="flex justify-between items-start">
-                                        <h5 className="text-sm font-semibold">{subnode.title}</h5>
+                                        <h5 className="text-sm font-semibold">
+                                            {subnode.url ? (
+                                                <a href={subnode.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 hover:underline">
+                                                    {subnode.title}
+                                                    <ExternalLink className="size-3" />
+                                                </a>
+                                            ) : subnode.title}
+                                        </h5>
                                         <p className="text-xs text-foreground/80">
                                             {
                                                 subnode.startDate ? (

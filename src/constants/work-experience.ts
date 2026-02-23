@@ -17,7 +17,7 @@ export const WorkExperience: SectionViewModel[] = [
 		title: "Cleverse",
 		subnodes: [
 			{
-				title: "Software Engineer (Intern)",
+				title: "Software Engineer (Intern → Part-time)",
 				description:
 					"Architected Bitcoin wallet auth library for 4 providers, built NFT launch platform and DEX features on Bitcoin/Mantle, and extended smart money tracker to Solana for 20K+ users.",
 				startDate: new Date("2024-04-01"),
