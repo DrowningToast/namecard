@@ -10,7 +10,7 @@ interface Props {
 const {
 	title = `${Profile.name} — Software Engineer`,
 	description = `Personal portfolio of ${Profile.name}, a Software Engineering student at KMITL and Fullstack Software Engineer at Agoda. Experienced in React, TypeScript, Next.js, and microservices.`,
-	image = new URL("/api/og", Astro.url).href,
+	image = `${Profile.website}/api/og`,
 } = Astro.props;
 
 const url = Profile.website;
