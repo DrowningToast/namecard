@@ -1,6 +1,6 @@
 export const Profile = {
 	name: "Supratouch Suwatno",
-	title: "4th year Information Technology Student (Software Engineering)",
+	title: "Graduated Information Technology Student (Software Engineering)",
 	location: "Bangkok, Thailand",
 	website: "https://supratouch.dev",
 	linkedin: "https://linkedin.com/in/supratouch",

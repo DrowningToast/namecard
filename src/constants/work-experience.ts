@@ -2,6 +2,17 @@ import type { SectionViewModel } from "@/components/landing/Section";
 
 export const WorkExperience: SectionViewModel[] = [
 	{
+		title: "Honest Bank",
+		subnodes: [
+			{
+				title: "Backend Engineer (Fulltime)",
+				description:
+					"Led design and delivery of an event-driven Kafka pipeline (Go, GCS, idempotent consumers, retry queue) for regulated e-document stamping at hundreds-of-thousands-per-year scale. Fixed upstream race condition causing approved-application state desync behind GrowthBook feature flag. Cut PagerDuty noise in payment/refund flows by reclassifying PromQL rules, eliminating recurring COE-P2 false alarms.",
+				startDate: new Date("2026-03-01"),
+			},
+		],
+	},
+	{
 		title: "Agoda",
 		subnodes: [
 			{

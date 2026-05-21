@@ -1,10 +1,16 @@
 import type { LogoDef } from "@/components/ui/logo-carousel";
-import { SiReact, SiNestjs, SiSvelte, SiAstro, SiTypescript, SiJavascript, SiHtml5, SiCss, SiExpress, SiMongodb, SiNodedotjs, SiPrisma, SiTrpc, SiSwagger, SiOpenapiinitiative, SiGraphql, SiDotnet, SiPython, SiApachecassandra, SiWagmi, SiVercel, SiNetlify, SiTailwindcss, SiCloudflare } from "@icons-pack/react-simple-icons";
-import { SiDjango, SiPostgresql, SiMysql, SiDocker, SiGit, SiLinux, SiBitcoin, SiEthereum, } from "@icons-pack/react-simple-icons";
+import { SiReact, SiNestjs, SiNextdotjs, SiSvelte, SiAstro, SiTypescript, SiJavascript, SiHtml5, SiCss, SiExpress, SiMongodb, SiNodedotjs, SiPrisma, SiTrpc, SiSwagger, SiOpenapiinitiative, SiGraphql, SiDotnet, SiPython, SiApachecassandra, SiWagmi, SiVercel, SiNetlify, SiTailwindcss, SiCloudflare } from "@icons-pack/react-simple-icons";
+import { SiDjango, SiPostgresql, SiMysql, SiDocker, SiGit, SiLinux, SiBitcoin, SiEthereum, SiGo, SiApachekafka } from "@icons-pack/react-simple-icons";
 
 export const Skills: LogoDef[] = [
 	{
 		name: "React", element: <SiReact />
+	},
+	{
+		name: "Next.js", element: <SiNextdotjs />,
+	},
+	{
+		name: "Nest.js", element: <SiNestjs />,
 	},
 	{
 		name: "Svelte", element: <SiSvelte />,
@@ -42,7 +48,12 @@ export const Skills: LogoDef[] = [
 	{
 		name: "C#.NET", element: <SiDotnet />,
 	},
-	// Golang
+	{
+		name: "Go", element: <SiGo />,
+	},
+	{
+		name: "Apache Kafka", element: <SiApachekafka />,
+	},
 	{
 		name: "Python", element: <SiPython />,
 	},

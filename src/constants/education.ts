@@ -6,8 +6,9 @@ export const Education: SectionViewModel[] = [
 		subnodes: [
 			{
 				title: "B.Sc. Information Technology, Software Engineering Track",
-				description: "GPA 3.68 · 4th year · Ladkrabang, Bangkok",
+				description: "GPA 3.68 · Graduated · Ladkrabang, Bangkok",
 				startDate: new Date("2022-06-01"),
+				endDate: new Date("2026-03-01"),
 			},
 		],
 	},
