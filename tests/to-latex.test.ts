@@ -106,7 +106,7 @@ describe("renderLatex", () => {
 
 	it("nests the year range inside the education bullet", () => {
 		expect(latex).toContain(
-			"      Bachelor of Science, School of Information Technology --- Software Engineering Track. GPA 3.68 & 2022 -- 2026 \\\\",
+			"      Bachelor of Science, School of Information Technology --- Software Engineering Track. First Class Honours. GPA 3.68 & 2022 -- 2026 \\\\",
 		);
 	});
 

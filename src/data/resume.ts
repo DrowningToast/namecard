@@ -37,6 +37,8 @@ export interface EducationEntry {
 	institution: string;
 	location: string;
 	degree: string;
+	/** e.g. "First Class Honours". Rendered between the degree and the GPA. */
+	honors?: string;
 	gpa?: string;
 	startDate: Date;
 	endDate: Date;
@@ -94,7 +96,6 @@ export const Resume: ResumeData = {
 					bullets: [
 						"Primary engineer on a bank direct-debit product: built the Go partner API client, the GraphQL enrollment lifecycle, and a scheduled collection job with regulatory hours gating and row-level locking.",
 						"Owned a regulatory compliance project end-to-end, design through production: an event-driven stamping pipeline in Go on Kafka and GCS, with retry/DLQ handling for vendor downtime and audit records in BigQuery.",
-						"Fixed a consumer-ordering race that stalled approved applicants mid-onboarding — replaced parallel Kafka consumption with a synchronous call plus rollback, shipped behind a GrowthBook flag.",
 						"On-call for payment and card systems: triaged PagerDuty escalations to root cause via Grafana and Prometheus, then shipped five remediations across payment idempotency, error typing, and vendor-state recovery.",
 					],
 				},
@@ -223,6 +224,7 @@ export const Resume: ResumeData = {
 			location: "Ladkrabang, Bangkok",
 			degree:
 				"Bachelor of Science, School of Information Technology — Software Engineering Track",
+			honors: "First Class Honours",
 			gpa: "3.68",
 			startDate: new Date("2022-06-01"),
 			endDate: new Date("2026-03-01"),

@@ -123,6 +123,7 @@ function renderEducation(entries: EducationEntry[]): string {
 		...entries.map((entry) => {
 			const detail = [
 				escapeLatex(entry.degree),
+				entry.honors ? escapeLatex(entry.honors) : null,
 				entry.gpa ? `GPA ${escapeLatex(entry.gpa)}` : null,
 			]
 				.filter(Boolean)

@@ -69,10 +69,12 @@ describe("toSectionViewModels", () => {
 });
 
 describe("educationToSectionViewModels", () => {
-	it("builds the GPA and location into the description", () => {
+	it("builds the honours, GPA and location into the description", () => {
 		const [vm] = educationToSectionViewModels(Resume.education);
 		expect(vm.title).toBe("King Mongkut's Institute of Technology Ladkrabang");
-		expect(vm.subnodes?.[0].description).toBe("GPA 3.68 · Ladkrabang, Bangkok");
+		expect(vm.subnodes?.[0].description).toBe(
+			"First Class Honours · GPA 3.68 · Ladkrabang, Bangkok",
+		);
 	});
 });
 

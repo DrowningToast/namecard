@@ -137,6 +137,7 @@ const Education: React.FC<{ entries: EducationEntry[] }> = ({ entries }) => (
 						>
 							<span>
 								{entry.degree}
+								{entry.honors ? `. ${entry.honors}` : null}
 								{entry.gpa ? `. GPA ${entry.gpa}` : null}
 							</span>
 							<span className="whitespace-nowrap tabular-nums">

@@ -38,6 +38,7 @@ export function educationToSectionViewModels(
 			{
 				title: entry.degree,
 				description: [
+					entry.honors,
 					entry.gpa ? `GPA ${entry.gpa}` : null,
 					entry.location,
 				]
