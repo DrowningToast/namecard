@@ -60,15 +60,18 @@ const Heading: React.FC<{ resume: ResumeData }> = ({ resume: { profile } }) => (
 		{/* Stacks on phones; the LaTeX name/contact two-column split needs width. */}
 		<div className="flex flex-col gap-[0.3em] sm:flex-row sm:items-start sm:justify-between sm:gap-[1.9em]">
 			{/* Sizes below are `em` ratios of the LaTeX 9.5pt base: 17pt, 12pt, 8.5pt. */}
-			<h1 className="text-[1.79em] font-bold leading-tight">{profile.name}</h1>
+			<div>
+				<h1 className="text-[1.79em] font-bold leading-tight">{profile.name}</h1>
+				<p>
+					<Link href={profile.website}>{stripScheme(profile.website)}</Link>
+				</p>
+			</div>
 			<div className="sm:text-right">
 				<p>{profile.location}</p>
 				<p>
 					<Link href={`mailto:${profile.email}`}>{profile.email}</Link>
 				</p>
 				<p>
-					<Link href={profile.website}>{stripScheme(profile.website)}</Link>
-					<Gap />
 					<Link href={profile.github}>{stripScheme(profile.github)}</Link>
 					<Gap />
 					<Link href={profile.linkedin}>{stripScheme(profile.linkedin)}</Link>
