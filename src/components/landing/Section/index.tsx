@@ -1,18 +1,21 @@
 import { Description } from "@/components/landing/Section/description";
 import { EncryptedText } from "@/components/ui/encrypted-text";
-import { format, formatRelative, subDays } from "date-fns";
+import { formatRange } from "@/lib/resume-format";
 import { ExternalLink } from "lucide-react";
 import type React from "react";
 
 export interface SectionViewModel {
     title: string,
     description?: string,
+    /** Rendered as a list. Takes precedence over `description` when present. */
+    bullets?: string[],
     url?: string,
     startDate?: Date,
     endDate?: Date,
     subnodes?: {
         title: string,
         description?: string,
+        bullets?: string[],
         url?: string,
         startDate?: Date,
         endDate?: Date,
@@ -52,9 +55,9 @@ export const Section: React.FC<SectionProps> = ({ header, sectionViewmodels }) =
                                             </a>
                                         ) : viewmodel.title}
                                     </h4>
-                                    {viewmodel.startDate ? <span className="text-sm lg:text-base text-foreground">{viewmodel.startDate.toLocaleDateString()}</span> : null}
+                                    {viewmodel.startDate ? <span className="text-sm lg:text-base text-foreground text-nowrap">{formatRange(viewmodel.startDate, viewmodel.endDate, "Present")}</span> : null}
                                 </div>
-                                <Description value={viewmodel.description} />
+                                <Description value={viewmodel.description} bullets={viewmodel.bullets} />
                             </div>
                             {viewmodel.subnodes?.map((subnode) => (
                                 <div className="space-y-1" key={subnode.title}>
@@ -67,34 +70,11 @@ export const Section: React.FC<SectionProps> = ({ header, sectionViewmodels }) =
                                                 </a>
                                             ) : subnode.title}
                                         </h5>
-                                        <p className="text-xs lg:text-sm text-foreground/80">
-                                            {
-                                                subnode.startDate ? (
-                                                    <span className="text-sm lg:text-base text-foreground text-nowrap">
-                                                        {format(subnode.startDate, "MMM yyyy")}
-                                                    </span>
-                                                ) : null
-                                            }
-                                            {
-                                                subnode.endDate ? (
-                                                    <span className="text-sm lg:text-base text-foreground text-nowrap">
-                                                        {" "}- {format(subnode.endDate, "MMM yyyy")}
-                                                    </span>
-                                                ) : (
-                                                    <>
-                                                        {
-                                                            subnode.startDate && !subnode.endDate ? (
-                                                                <span className="text-sm lg:text-base text-foreground text-nowrap">
-                                                                    {" "}- Present
-                                                                </span>
-                                                            ) : null
-                                                        }
-                                                    </>
-                                                )
-                                            }
+                                        <p className="text-sm lg:text-base text-foreground text-nowrap">
+                                            {formatRange(subnode.startDate, subnode.endDate, "Present")}
                                         </p>
                                     </div>
-                                    <Description value={subnode.description} />
+                                    <Description value={subnode.description} bullets={subnode.bullets} />
                                 </div>
                             ))}
                         </div>

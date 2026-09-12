@@ -1,6 +1,8 @@
 # build output
 dist/
 .vercel/
+# generated LaTeX (regenerate with `pnpm resume:tex`)
+build/
 # generated types
 .astro/
 

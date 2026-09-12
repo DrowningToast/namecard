@@ -15,6 +15,10 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+	/* The résumé paper opts out of the global pixel face. Charter ships on
+	   macOS, Cambria on Windows, Georgia everywhere — no webfont download. */
+	--font-resume: Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia,
+		serif;
 	--radius-sm: calc(var(--radius) - 4px);
 	--radius-md: calc(var(--radius) - 2px);
 	--radius-lg: var(--radius);
@@ -133,5 +137,28 @@
 	}
 	body {
 		@apply bg-background text-foreground;
+	}
+	/* Preflight hides [hidden] via a zero-specificity :where() selector, so any
+	   display utility (`flex`, `grid`, `block`) silently beats it. The tab
+	   panels in index.astro are flex containers and would never hide. */
+	[hidden]:not([hidden="until-found"]) {
+		display: none !important;
+	}
+}
+
+/* Cmd-P on /resume should produce a usable sheet even before a PDF exists.
+   The chrome is hidden via `print:hidden` in Base.astro; this strips the
+   page padding and forces ink-on-paper regardless of the active theme. */
+@media print {
+	body {
+		background: #fff !important;
+		padding: 0 !important;
+		margin: 0 !important;
+		max-width: none !important;
+	}
+
+	@page {
+		size: letter;
+		margin: 0.4in 0.45in;
 	}
 }

@@ -1,0 +1,169 @@
+%==============================================================================
+% Supratouch Suwatno — Résumé
+% Compile with:  pdflatex resume.tex   (or xelatex/latexmk)
+%==============================================================================
+\documentclass[letterpaper,9pt]{extarticle}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.45in,top=0.4in,bottom=0.4in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage{charter}          % readable serif; swap for \usepackage{helvet}\renewcommand{\familydefault}{\sfdefault} if you prefer sans
+\usepackage{microtype}
+
+%------------------------------------------------------------------ formatting
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\tabcolsep}{0pt}
+\raggedbottom
+\raggedright
+
+\definecolor{accent}{HTML}{1A1A1A}
+\definecolor{rulegray}{HTML}{999999}
+
+% Section headings: small caps, thin rule underneath
+\titleformat{\section}
+  {\large\bfseries\color{accent}}
+  {}{0em}{}[\vspace{-0.6ex}{\color{rulegray}\hrule height 0.5pt}]
+\titlespacing*{\section}{0pt}{1.6ex}{0.9ex}
+
+% Tight bullet lists
+\setlist[itemize]{
+  leftmargin=1.2em,
+  labelsep=0.45em,
+  topsep=0.25ex,
+  itemsep=0.20ex,
+  parsep=0pt,
+  partopsep=0pt,
+  label=$\bullet$
+}
+
+%-------------------------------------------------------------------- commands
+% \entry{Title}{Date}
+\newcommand{\entry}[2]{%
+  \vspace{0.6ex}%
+  \noindent\begin{tabularx}{\textwidth}{@{}X r@{}}
+    \textbf{#1} & #2 \\
+  \end{tabularx}%
+  \vspace{-0.2ex}%
+}
+
+% \entrylink{Title}{URL text}{URL}{Date}
+\newcommand{\entrylink}[4]{%
+  \vspace{0.6ex}%
+  \noindent\begin{tabularx}{\textwidth}{@{}X r@{}}
+    \textbf{#1}\hspace{0.6em}\href{#3}{\small #2} & #4 \\
+  \end{tabularx}%
+  \vspace{-0.2ex}%
+}
+
+\newcommand{\role}[1]{(\textit{#1})}
+
+%==============================================================================
+\begin{document}
+
+%--------------------------------------------------------------------- heading
+\begin{tabularx}{\textwidth}{@{}X r@{}}
+  {\LARGE\bfseries Supratouch Suwatno} & Bangkok, Thailand \\[0.35ex]
+   & \href{mailto:su.suwatno@gmail.com}{su.suwatno@gmail.com} \quad [phone redacted] \\[0.35ex]
+   & \href{https://supratouch.dev}{supratouch.dev} \quad
+     \href{https://linkedin.com/in/supratouch}{linkedin.com/in/supratouch} \\
+\end{tabularx}
+
+\vspace{0.6ex}
+\begin{tabularx}{\textwidth}{@{}X r@{}}
+  Graduated Information Technology Student (Software Engineering) &
+  Language: Native Thai, English (TOEIC 900) \\
+\end{tabularx}
+
+%----------------------------------------------------------------- experiences
+\section{Experiences}
+
+\entry{Honest Bank \role{Backend Engineer, Fulltime}}{March 2026 -- Now}
+\begin{itemize}
+  \item Led design and delivery of an event-driven Kafka pipeline (Go, GCS, idempotent consumers, retry queue, vendor health check) for regulated e-document stamping at hundreds-of-thousands-per-year scale, mitigating multi-year penalty exposure
+  \item Fixed upstream race condition causing approved-application state desync; rolled out behind GrowthBook feature flag with percentage rollout and Grafana validation
+  \item Cut PagerDuty noise in payment/refund flows by analyzing 5,000 transactions ($\sim$96\% expected vendor declines); reclassified PromQL rules and refactored client error contract, eliminating recurring COE-P2 false alarms
+\end{itemize}
+
+\entry{Agoda \role{Fullstack Software Engineer, Intern, Part-time}}{June 2025 -- Dec 2025}
+\begin{itemize}
+  \item Led per-feature design review sessions with 10--30 cross-functional stakeholders (directors, engineering managers, product owners, system maintainers), presenting API design proposals and frontend architecture for partner extranet convergence initiative
+  \item Migrated 5 high-traffic partner extranet pages (thousands of daily users) from legacy monolith to microservices architecture (React, C\# .NET), conducting legacy system research and designing solutions such as property-type-based dynamic form field configuration
+  \item Established comprehensive testing diamond: unit tests for utilities, contract tests for inter-service communication with third-party microservices, and end-to-end acceptance tests validating complete user journeys in production-like environments
+  \item Incorporated stakeholder feedback to refine designs, including discovering and migrating to newer API endpoints identified through collaborative review process
+\end{itemize}
+
+\entry{Cleverse \role{Software Engineer, Intern, Part-time}}{April 2024 -- Feb 2025}
+\begin{itemize}
+  \item Architected Bitcoin wallet authentication library supporting 4 major providers, creating unified adapter pattern for signature-based user authentication across multiple Web3 applications
+  \item Developed NFT launch platform on Bitcoin generating ten thousands dollars in first-round investment with full sellout, integrating Mempool API for transaction management and investor verification
+  \item Contributed core DEX features (liquidity pool management, token swapping) for Mantle chain deployment, implementing Uniswap V2/V3 fork architecture
+  \item Extended smart money tracking platform from Ethereum to Solana, implementing wallet profile analytics and transaction history visualization for 20K+ user base
+\end{itemize}
+
+\entry{School of Information Technology, KMITL \role{Teaching Assistant}}{July 2023 -- Feb 2024}
+\begin{itemize}
+  \item Mentored 100+ students across multiple computer science courses including Problem Solving (Python), Object-Oriented Programming (Java), and IT Fundamentals (Git, Linux)
+\end{itemize}
+
+%-------------------------------------------------------------------- projects
+\section{Projects}
+
+\entrylink{KMITL Curriculum Website \role{Leads Fullstack Engineer}}{https://curriculum.kmitl.ac.th}{https://curriculum.kmitl.ac.th}{April 2025 -- May 2025}
+\begin{itemize}
+  \item Led 1-month development of university curriculum platform (100+ programs) with Astro and PayloadCMS, managing a junior developer on WordPress migration and presenting to institutional directors
+\end{itemize}
+
+\entrylink{ITKMITL TCAS \role{System Maintainer}}{https://tcas.it.kmitl.ac.th}{https://tcas.it.kmitl.ac.th}{Sep 2023 -- Aug 2025}
+\begin{itemize}
+  \item Rescued non-operational admissions platform (500+ students) by delivering emergency Svelte rewrite in 2--4 weeks, eliminating 6+ years of technical debt (Vue 2, Node 12, Sequelize). Modernized to Next.js with hybrid SSR/CSR and Prisma ORM; built staff portal for application review and applicant management
+\end{itemize}
+
+%-------------------------------------------------------- leadership/activities
+\section{Leadership \& Activities}
+
+\entry{IT Experience Club \role{Vice-President}}{July 2023 -- Feb 2024}
+\begin{itemize}
+  \item Organized technology workshops for 200+ students including Python project-building workshops for first-year students
+\end{itemize}
+
+\entrylink{Junior Webmaster Camp 13 \role{Programming Class Teaching Director, Frontend Developer}}{https://13.jwc.in.th/}{https://13.jwc.in.th/}{July 2024}
+\begin{itemize}
+  \item Instructed 48 selected high school students in advanced fullstack development and developer--designer collaboration
+  \item Led frontend development team and created interactive camp website with engaging user experience
+\end{itemize}
+
+%------------------------------------------------------------------- education
+\section{Education}
+
+\entry{King Mongkut's Institute of Technology Ladkrabang}{Ladkrabang, Bangkok}
+\begin{itemize}
+  \item \begin{tabularx}{\linewidth}{@{}X r@{}}
+      Bachelor of Science, School of Information Technology --- Software Engineering Track. GPA 3.68 & 2022 -- 2026 \\
+    \end{tabularx}
+\end{itemize}
+
+%------------------------------------------------------------- technical skills
+\section{Technical Skills}
+
+\vspace{0.4ex}
+\newcolumntype{S}{>{\raggedright\arraybackslash}X}
+\begin{tabularx}{\textwidth}{@{}S @{\hspace{1.4em}} S @{\hspace{1.4em}} S@{}}
+  \textbf{Languages:} TypeScript, JavaScript, C++, C\#, Python, Java, Go, SQL &
+  \textbf{Backend:} Node.js, Express, Nest.js, .NET, tRPC, Django, Prisma ORM, GraphQL, Kafka (Confluent, Avro) &
+  \textbf{Infrastructure:} Docker/Kubernetes, Terraform, ArgoCD, Vault, GCS, GrowthBook, Git, Linux, Multi-datacenter deployment, Microservices architecture \\[1.0ex]
+
+  \textbf{Observability:} Prometheus/PromQL, Grafana, Loki, PagerDuty &
+  \textbf{Frontend:} React, Next.js, SvelteKit, Svelte, Astro, HTML5, CSS3, Tailwind CSS &
+  \textbf{Databases:} PostgreSQL, MySQL, MSSQL, MongoDB, Cassandra, BigQuery \\[1.0ex]
+
+  \textbf{Web3:} Bitcoin wallet integration, DeFi protocols, Smart contract interaction, Web3.js/Ethers.js \\
+\end{tabularx}
+
+\end{document}

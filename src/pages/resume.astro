@@ -1,0 +1,16 @@
+---
+import ResumeView from "@/components/resume/ResumeView.astro";
+import { Profile } from "@/constants/profile";
+import Base from "@/layouts/Base.astro";
+---
+
+<Base
+	title={`Résumé — ${Profile.name}`}
+	description={`Résumé of ${Profile.name} — ${Profile.tagline}. Backend Engineer at Honest Bank, previously Agoda and Cleverse.`}
+	path="/resume"
+	bodyClass="py-16 flex flex-col items-stretch mx-auto max-w-6xl print:py-0"
+>
+	<div class="relative z-10 flex flex-col items-stretch p-4 print:p-0">
+		<ResumeView />
+	</div>
+</Base>

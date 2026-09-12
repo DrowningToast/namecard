@@ -1,0 +1,40 @@
+---
+import { ResumePaper } from "@/components/resume/ResumePaper";
+import { Resume } from "@/data/resume";
+import { RESUME_PDF_HREF, resumePdfExists } from "@/lib/resume-pdf";
+
+/**
+ * Toolbar + paper. Shared by the `/resume` route and the homepage tab so the
+ * two can never drift.
+ *
+ * `ResumePaper` carries no `client:*` directive on purpose — it is pure markup,
+ * so Astro renders it to static HTML and neither entry point pays any JS.
+ */
+---
+
+<div class="flex flex-col items-stretch gap-y-4">
+	<div
+		class="flex items-center justify-end gap-x-2 text-sm text-foreground print:hidden"
+	>
+		{
+			resumePdfExists && (
+				<a
+					href={RESUME_PDF_HREF}
+					download
+					class="rounded-md border border-foreground/30 px-3 py-1 transition-colors hover:bg-foreground/10"
+				>
+					Download PDF
+				</a>
+			)
+		}
+		<button
+			type="button"
+			onclick="window.print()"
+			class="rounded-md border border-foreground/30 px-3 py-1 transition-colors hover:bg-foreground/10"
+		>
+			Print
+		</button>
+	</div>
+
+	<ResumePaper resume={Resume} />
+</div>

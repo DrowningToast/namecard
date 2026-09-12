@@ -6,7 +6,12 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "resume:tex": "node scripts/resume.ts",
+    "resume:pdf": "node scripts/resume.ts --pdf",
+    "resume:check": "node scripts/resume.ts --check",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "dependencies": {
     "@astrojs/react": "^4.4.2",
@@ -38,6 +43,7 @@
   "devDependencies": {
     "@types/node": "^25.3.0",
     "shadcn": "^3.8.5",
-    "tw-animate-css": "^1.4.0"
+    "tw-animate-css": "^1.4.0",
+    "vitest": "^5.0.0"
   }
 }

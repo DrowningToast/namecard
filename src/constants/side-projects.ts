@@ -2,6 +2,18 @@ import type { SectionViewModel } from "@/components/landing/Section";
 
 export const SideProjects: SectionViewModel[] = [
 	{
+		title: "Money Rotation",
+		url: "https://money-rotation.supratouch.dev",
+		description:
+			"A dashboard showing which market sectors money is rotating into and out of, scored against the S&P 500.",
+	},
+	{
+		title: "HYPE Tracker",
+		url: "https://hype.supratouch.dev",
+		description:
+			"A tracker for HYPE positions across Hyperliquid staking, HyperEVM and Pendle, with cost basis and hedge exposure.",
+	},
+	{
 		title: "Hyperliquid HIP-3 Funding Rate Arbitrage Explorer",
 		url: "https://hip3.supratouch.dev",
 		description:

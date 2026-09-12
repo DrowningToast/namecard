@@ -1,0 +1,53 @@
+---
+import "../styles/global.css";
+import SEO from "@/components/SEO.astro";
+import { Navbar } from "@/components/common/Navbar";
+import { Background } from "@/components/landing/Background";
+
+interface Props {
+	title?: string;
+	description?: string;
+	path?: string;
+	/** Body classes. Pages own their own column width and rhythm. */
+	bodyClass?: string;
+}
+
+const {
+	title,
+	description,
+	path,
+	bodyClass = "py-16 flex flex-col items-stretch gap-y-20 mx-auto max-w-2xl",
+} = Astro.props;
+
+const pathname = Astro.url.pathname;
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<SEO title={title} description={description} path={path} />
+		{/* Must stay inline and in <head>, or the page flashes light before hydration. */}
+		<script is:inline>
+			const theme = localStorage.getItem("theme") ?? "dark";
+			document.documentElement.classList.toggle("dark", theme === "dark");
+		</script>
+	</head>
+	<body
+		class:list={[
+			"bg-background px-4 relative transition-colors:* duration-300:*",
+			bodyClass,
+		]}
+	>
+		<div class="fixed top-0 inset-x-0 z-20 print:hidden">
+			<Navbar pathname={pathname} client:load />
+		</div>
+		<div class="fixed inset-0 max-w-full z-0 print:hidden">
+			<Background client:only />
+		</div>
+		<slot />
+	</body>
+</html>

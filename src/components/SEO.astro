@@ -5,15 +5,18 @@ interface Props {
 	title?: string;
 	description?: string;
 	image?: string;
+	/** Route path, e.g. "/resume". Drives the canonical and og:url. */
+	path?: string;
 }
 
 const {
 	title = `${Profile.name} — Software Engineer`,
 	description = `Personal portfolio of ${Profile.name}, a Software Engineering student at KMITL and Fullstack Software Engineer at Agoda. Experienced in React, TypeScript, Next.js, and microservices.`,
 	image = `${Profile.website}/api/og`,
+	path = "/",
 } = Astro.props;
 
-const url = Profile.website;
+const url = new URL(path, Profile.website).href.replace(/\/$/, "");
 
 const jsonLd = {
 	"@context": "https://schema.org",

@@ -1,43 +1,22 @@
 ---
-import "../styles/global.css";
 import { NameCard } from "@/components/landing/NameCard";
-import { Background } from "@/components/landing/Background";
-import { Navbar } from "@/components/common/Navbar";
 import { Section } from "@/components/landing/Section/index";
-import { WorkExperience } from "@/constants/work-experience";
+import { SkillsCarousel } from "@/components/landing/SkillsCarousel";
+import { EncryptedText } from "@/components/ui/encrypted-text";
+import { Activities } from "@/constants/activities";
 import { Education } from "@/constants/education";
 import { Projects } from "@/constants/projects";
 import { SideProjects } from "@/constants/side-projects";
-import { Activities } from "@/constants/activities";
-import SEO from "@/components/SEO.astro";
-import { SkillsCarousel } from "@/components/landing/SkillsCarousel";
-import { EncryptedText } from "@/components/ui/encrypted-text";
+import { WorkExperience } from "@/constants/work-experience";
+import Base from "@/layouts/Base.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<SEO />
-		<script is:inline>
-			const theme = localStorage.getItem("theme") ?? "dark";
-			document.documentElement.classList.toggle("dark", theme === "dark");
-		</script>
-	</head>
-	<body
-		class="bg-background px-4 relative transition-colors:* duration-300:* py-16 flex flex-col items-stretch gap-y-20 mx-auto max-w-2xl"
-	>
-		<div class="fixed top-0 inset-x-0 z-20">
-			<Navbar client:load />
-		</div>
-		<div class="fixed inset-0 max-w-full z-0">
-			<Background client:only />
-		</div>
-		<div class="relative z-10 flex flex-col items-stretch p-4 gap-y-16">
-			<NameCard />
+<Base>
+	<div class="relative z-10 flex flex-col items-stretch p-4 gap-y-16">
+		<NameCard />
+
+		{/* The résumé lives at its own `/resume` route, reached from the navbar. */}
+		<div class="flex flex-col items-stretch gap-y-16 -mt-8">
 			<Section
 				header="Experience"
 				sectionViewmodels={WorkExperience}
@@ -67,5 +46,5 @@ import { EncryptedText } from "@/components/ui/encrypted-text";
 			/>
 			<Section header="Activities" sectionViewmodels={Activities} client:load />
 		</div>
-	</body>
-</html>
+	</div>
+</Base>
