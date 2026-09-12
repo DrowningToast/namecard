@@ -254,7 +254,10 @@ export const Resume: ResumeData = {
 			items: [
 				"Kafka (Confluent, Avro)",
 				"GraphQL",
+				"Gin",
+				"Fiber",
 				"Node.js",
+				"Elysia",
 				"Nest.js",
 				"Express",
 				"tRPC",
