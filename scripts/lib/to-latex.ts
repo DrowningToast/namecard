@@ -63,7 +63,7 @@ export function renderLatex(resume: ResumeData): string {
 		renderHeading(resume),
 		...resume.sections.map(renderSection),
 		renderEducation(resume.education),
-		renderSkills(resume.skills),
+		renderSkills(resume.skills, resume.skillsNote),
 		"\\end{document}",
 		"",
 	].join("\n");
@@ -142,7 +142,7 @@ function renderEducation(entries: EducationEntry[]): string {
 	].join("\n");
 }
 
-function renderSkills(groups: SkillGroup[]): string {
+function renderSkills(groups: SkillGroup[], note?: string): string {
 	const rows = chunk(groups, SKILL_COLUMNS);
 	const columnSpec = Array.from({ length: SKILL_COLUMNS }, () => "S").join(
 		" @{\\hspace{1.4em}} ",
@@ -163,6 +163,7 @@ function renderSkills(groups: SkillGroup[]): string {
 		rule("technical skills"),
 		"\\section{Technical Skills}",
 		"",
+		...(note ? [`{\\small\\itshape ${escapeLatex(note)}}`, ""] : []),
 		"\\vspace{0.4ex}",
 		"\\newcolumntype{S}{>{\\raggedright\\arraybackslash}X}",
 		`\\begin{tabularx}{\\textwidth}{@{}${columnSpec}@{}}`,

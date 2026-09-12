@@ -65,6 +65,8 @@ export interface ResumeData {
 	sections: ResumeSection[];
 	education: EducationEntry[];
 	skills: SkillGroup[];
+	/** Small caption under the Technical Skills heading. Explains the ordering. */
+	skillsNote?: string;
 }
 
 export const Resume: ResumeData = {
@@ -231,87 +233,91 @@ export const Resume: ResumeData = {
 		},
 	],
 
+	// Groups and the items inside them run most-used first — see `skillsNote`.
+	// Reorder when the day job changes, not alphabetically.
 	skills: [
 		{
 			label: "Languages",
 			items: [
-				"TypeScript",
-				"JavaScript",
-				"C++",
-				"C#",
-				"Python",
-				"Java",
 				"Go",
+				"TypeScript",
 				"SQL",
+				"Python",
+				"JavaScript",
+				"Java",
+				"C#",
+				"C++",
 			],
 		},
 		{
 			label: "Backend",
 			items: [
-				"Node.js",
-				"Express",
-				"Nest.js",
-				".NET",
-				"tRPC",
-				"Django",
-				"Prisma ORM",
-				"GraphQL",
 				"Kafka (Confluent, Avro)",
-			],
-		},
-		{
-			label: "Infrastructure",
-			items: [
-				"Docker/Kubernetes",
-				"Terraform",
-				"ArgoCD",
-				"Vault",
-				"GCS",
-				"GrowthBook",
-				"Git",
-				"Linux",
-				"Multi-datacenter deployment",
-				"Microservices architecture",
-			],
-		},
-		{
-			label: "Observability",
-			items: ["Prometheus/PromQL", "Grafana", "Loki", "PagerDuty"],
-		},
-		{
-			label: "Frontend",
-			items: [
-				"React",
-				"Next.js",
-				"SvelteKit",
-				"Svelte",
-				"Astro",
-				"HTML5",
-				"CSS3",
-				"Tailwind CSS",
+				"GraphQL",
+				"Node.js",
+				"Nest.js",
+				"Express",
+				"tRPC",
+				"Prisma ORM",
+				".NET",
+				"Django",
 			],
 		},
 		{
 			label: "Databases",
 			items: [
 				"PostgreSQL",
-				"MySQL",
-				"MSSQL",
-				"MongoDB",
-				"Cassandra",
 				"BigQuery",
+				"MySQL",
+				"MongoDB",
+				"MSSQL",
+				"Cassandra",
+			],
+		},
+		{
+			label: "Infrastructure",
+			items: [
+				"Docker/Kubernetes",
+				"Git",
+				"Linux",
+				"ArgoCD",
+				"Terraform",
+				"Vault",
+				"GCS",
+				"GrowthBook",
+				"Microservices architecture",
+				"Multi-datacenter deployment",
+			],
+		},
+		{
+			label: "Observability",
+			items: ["Grafana", "Prometheus/PromQL", "PagerDuty", "Loki"],
+		},
+		{
+			label: "Frontend",
+			items: [
+				"React",
+				"Next.js",
+				"Tailwind CSS",
+				"Astro",
+				"Svelte",
+				"SvelteKit",
+				"HTML5",
+				"CSS3",
 			],
 		},
 		{
 			label: "Web3",
 			items: [
-				"Bitcoin wallet integration",
-				"DeFi protocols",
 				"Smart contract interaction",
+				"Bitcoin wallet integration",
 				"Web3.js/Ethers.js",
+				"DeFi protocols",
 			],
 		},
 	],
+
+	skillsNote: "Ordered by what I reach for most, day to day.",
 };
 
 /** Entries that belong in the generated PDF. */

@@ -51,7 +51,7 @@ export const ResumePaper: React.FC<{ resume: ResumeData; className?: string }> =
 			<Section key={section.heading} section={section} />
 		))}
 		<Education entries={resume.education} />
-		<Skills groups={resume.skills} />
+		<Skills groups={resume.skills} note={resume.skillsNote} />
 	</article>
 );
 
@@ -151,9 +151,15 @@ const Education: React.FC<{ entries: EducationEntry[] }> = ({ entries }) => (
 	</section>
 );
 
-const Skills: React.FC<{ groups: SkillGroup[] }> = ({ groups }) => (
+const Skills: React.FC<{ groups: SkillGroup[]; note?: string }> = ({
+	groups,
+	note,
+}) => (
 	<section>
 		<SectionHeading>Technical Skills</SectionHeading>
+		{note ? (
+			<p className="mt-[0.4ex] text-[0.89em] italic opacity-70">{note}</p>
+		) : null}
 		{/* The LaTeX tabularx is 3 fixed columns; one column below `sm`. */}
 		<div className="mt-[0.4ex] grid grid-cols-1 gap-x-[1.4em] gap-y-[0.6em] sm:grid-cols-3">
 			{groups.map((group) => (
