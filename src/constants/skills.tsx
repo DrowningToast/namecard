@@ -1,6 +1,7 @@
 import type { LogoDef } from "@/components/ui/logo-carousel";
 import { SiReact, SiNestjs, SiNextdotjs, SiSvelte, SiAstro, SiTypescript, SiJavascript, SiHtml5, SiCss, SiExpress, SiMongodb, SiNodedotjs, SiPrisma, SiTrpc, SiSwagger, SiOpenapiinitiative, SiGraphql, SiDotnet, SiPython, SiApachecassandra, SiWagmi, SiVercel, SiNetlify, SiTailwindcss, SiCloudflare } from "@icons-pack/react-simple-icons";
 import { SiDjango, SiPostgresql, SiMysql, SiDocker, SiGit, SiLinux, SiBitcoin, SiEthereum, SiGo, SiApachekafka } from "@icons-pack/react-simple-icons";
+import { SiGin, SiKubernetes, SiTerraform, SiArgo, SiVault, SiGooglecloud, SiGooglebigquery, SiGrafana, SiPrometheus, SiPagerduty, SiOpenjdk, SiCplusplus } from "@icons-pack/react-simple-icons";
 
 export const Skills: LogoDef[] = [
 	{
@@ -113,5 +114,55 @@ export const Skills: LogoDef[] = [
 	// TailwindCSS
 	{
 		name: "TailwindCSS", element: <SiTailwindcss />,
+	},
+	// Languages
+	{
+		name: "JavaScript", element: <SiJavascript />,
+	},
+	{
+		name: "Java", element: <SiOpenjdk />,
+	},
+	{
+		name: "C++", element: <SiCplusplus />,
+	},
+	{
+		name: "HTML5", element: <SiHtml5 />,
+	},
+	{
+		name: "CSS3", element: <SiCss />,
+	},
+	// Backend
+	{
+		name: "Gin", element: <SiGin />,
+	},
+	// Infrastructure
+	{
+		name: "Kubernetes", element: <SiKubernetes />,
+	},
+	{
+		name: "Terraform", element: <SiTerraform />,
+	},
+	{
+		name: "ArgoCD", element: <SiArgo />,
+	},
+	{
+		name: "Vault", element: <SiVault />,
+	},
+	{
+		name: "Google Cloud", element: <SiGooglecloud />,
+	},
+	// Databases
+	{
+		name: "BigQuery", element: <SiGooglebigquery />,
+	},
+	// Observability
+	{
+		name: "Grafana", element: <SiGrafana />,
+	},
+	{
+		name: "Prometheus", element: <SiPrometheus />,
+	},
+	{
+		name: "PagerDuty", element: <SiPagerduty />,
 	},
 ]
